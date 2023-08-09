@@ -16,9 +16,7 @@ export default function HomeScreen() {
 
   const { baseUrl } = environment;
   const { user } = useContext(AuthContext);
-
-  const url = `${baseUrl}/v1/acceso`;
-
+  
   return (
     <>
       <StatusBar
@@ -28,7 +26,7 @@ export default function HomeScreen() {
       <SafeAreaView style={styles.container}>
         <View style={styles.userArea}>
           <Text style={{ fontSize: 20 }}>Hola</Text>
-          <Text style={{ fontSize: 13, fontWeight: 'bold' }}>Luis</Text>
+          <Text style={{ fontSize: 13, fontWeight: 'bold' }}>{user?.name}</Text>
         </View>
       </SafeAreaView>
     </>

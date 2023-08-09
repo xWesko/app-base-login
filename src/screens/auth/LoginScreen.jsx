@@ -23,17 +23,17 @@ const LoginScreen = () => {
   const [cargando, setCargando] = useState(false);
   const [campos, setCampos] = useState({
     email: null,
-    clave: null
+    password: null
   });
 
   const handleLogin = () => {
     try {
       setCargando(true);
-      if(!campos.email && !campos.clave) {
+      if(!campos.email && !campos.password) {
         Alert("Error", "Ingresa el correo y contraseña.");
         return
       }
-      login(campos.email, campos.clave);
+      login(campos.email, campos.password);
     } catch (error) {
       console.log('error al inciar sesion: ', error);
     } finally {
@@ -101,7 +101,7 @@ const LoginScreen = () => {
 
         <InputField
           label={'Contraseña'}
-          name='clave'
+          name='password'
           setCampos={setCampos}
           campos={campos}
           icon={

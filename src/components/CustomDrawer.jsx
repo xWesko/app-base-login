@@ -17,7 +17,7 @@ const { mainColor } = environment;
 
 const CustomDrawer = props => {
 
-  const { logout  } = useContext(AuthContext);
+  const { logout, user } = useContext(AuthContext);
   return (
     <View style={{flex: 1}}>
       <DrawerContentScrollView
@@ -32,7 +32,7 @@ const CustomDrawer = props => {
               fontWeight: 'bold',
               marginBottom: 5,
             }}>
-            luis@gmail.com
+            {user?.name}
           </Text>
           <View style={{flexDirection: 'row'}}>
             <Text
@@ -40,7 +40,7 @@ const CustomDrawer = props => {
                 color: '#fff',
                 marginRight: 5,
               }}>
-              Administrador
+               User Profile: {user?.profileId}
             </Text>
           </View>
         </View>

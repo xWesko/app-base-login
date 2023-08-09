@@ -57,12 +57,12 @@ export const AuthProvider = ({children}) => {
         setUser,
         login: async (email, password) => {
           try {
-            const resp = await axios.post(`${baseUrl}/v1/iniciar-sesion`, {
-              correo: email,
-              clave: password,
+            const resp = await axios.post(`${baseUrl}/login`, {
+              email: email,
+              password: password,
             });
-            setUser(resp?.data?.detalle);
-            storeData(resp?.data?.detalle);
+            setUser(resp?.data?.data);
+            storeData(resp?.data?.data);
           } catch (e) {
             Alert('Atención', 'Credenciales incorrectas');
             console.log(e);
